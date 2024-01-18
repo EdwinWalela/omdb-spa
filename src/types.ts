@@ -3,7 +3,8 @@ export interface LandingInitialState {
   isLoading: boolean,
   hasError: boolean,
   errorMessage:string,
-  movies:Movie[]
+  movies:Movie[],
+  noResults:boolean;
 }
  
 export interface Movie {

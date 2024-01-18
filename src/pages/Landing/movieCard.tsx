@@ -1,16 +1,23 @@
 
 import goldStarIcon from '../../assets/gold-star.svg';
+import noPosterImg from '../../assets/no-poster.png';
 import { Movie } from '../../types';
 
 const MovieCard = (props:any) => {
+  let posterUrl = props.movie.Poster;
+  let posterStyle = 'h-60';
+  if(posterUrl == 'N/A'){
+    posterUrl = noPosterImg;
+    posterStyle = 'h-43'
+  } 
   return (
     <div 
       className="shadow-lg w-1/3 mx-2 my-2 "
     >
       <div className="flex ">
         <img 
-          src={props.movie.Poster}
-          className="h-60"
+          src={posterUrl}
+          className={posterStyle}
         />
        <div className="px-4 py-4">
         <div className="flex ">

@@ -7,7 +7,8 @@ const initialState = {
   isLoading: false,
   hasError: false,
   errorMessage:'',
-  movies:[]
+  movies:[],
+  noResults: false
 } as LandingInitialState;
 
 export const getMovies = createAsyncThunk(
@@ -16,6 +17,10 @@ export const getMovies = createAsyncThunk(
     let data;
     try {
       data = await api.getMovies(payload.title)
+      console.log(data)
+      if(data.Response == 'False'){
+        return rejectWithValue(data.Error)
+      }
     } catch (error:any) {
       return rejectWithValue(error.message)
     }
@@ -33,19 +38,21 @@ export const landingSlice = createSlice({
       state.isLoading = true;
       state.hasError = false;
       state.errorMessage = '';
+      state.movies = [];
+      state.noResults = false;
     });
     builder.addCase(getMovies.fulfilled, (state,action)=>{
       state.isLoading = false;
       state.hasError = false;
       state.errorMessage = '';
       let movies = [];
-      movies.push(action.payload)
+      movies.push(action.payload);
       state.movies = movies;
     })
     builder.addCase(getMovies.rejected, (state,action)=>{
       state.isLoading = false;
       state.hasError = true;
-      state.errorMessage = '';
+      state.errorMessage = String(action.payload);
     })
   }
 })

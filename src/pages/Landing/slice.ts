@@ -19,7 +19,6 @@ export const getMovies = createAsyncThunk(
     } catch (error:any) {
       return rejectWithValue(error.message)
     }
-    console.log(res.data)
     return res.data
   }
 )
@@ -38,7 +37,9 @@ export const landingSlice = createSlice({
       state.isLoading = false;
       state.hasError = false;
       state.errorMessage = '';
-      state.movies = action.payload;
+      let movies = [];
+      movies.push(action.payload)
+      state.movies = movies;
     })
     builder.addCase(getMovies.rejected, (state,action)=>{
       state.isLoading = false;

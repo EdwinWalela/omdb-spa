@@ -1,14 +1,33 @@
 import { useState } from "react"
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { getMovies } from "./slice";
 
 const SearchForm = () => {
+  const dispatch = useAppDispatch();
+  const state = useAppSelector((state) => state.landingState);
+  
+  const movies = state.movies;
+  const isLoading = state.isLoading;
+  const hasError = state.hasError;
+  const errorMessage = state.errorMessage;
+
   const [title, setTitle] = useState('');
 
   function handleTitleChange(e: React.FormEvent<HTMLInputElement>) {
     setTitle(e.currentTarget.value);
   }
 
+  function handleFormSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    dispatch(getMovies({title}))
+  }
+  
+
   return (
-    <form className="w-1/3 mx-auto my-10 border text-center shadow-md py-5">
+    <form 
+      className="w-1/3 mx-auto my-10 border text-center shadow-md py-5"
+      onSubmit={handleFormSubmit}
+    >
       <input 
         type="text" 
         className="w-3/4 focus:outline-0  border-b-2 border-blue-500 px-2 py-1"

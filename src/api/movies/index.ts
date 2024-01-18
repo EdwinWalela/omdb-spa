@@ -7,10 +7,13 @@ const getMovies = async (title:string) =>{
   let response;
 
   try {
-    response = await axios.get(`${BASE_URL}&t=${title}`)
+    const url = `${BASE_URL}&t=${title}`;
+    response = await axios.get(url)
   } catch (error:any) {
     throw new Error(`Failed to get movie list: ${error.message}`);
   }
+  
+  console.log(response.data)
   return response.data
 }
 

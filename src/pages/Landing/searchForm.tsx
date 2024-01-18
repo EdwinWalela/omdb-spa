@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useAppDispatch, useAppSelector } from "../../hooks";
+import { useAppDispatch } from "../../hooks";
 import { getMovies } from "./slice";
 
 const SearchForm = () => {

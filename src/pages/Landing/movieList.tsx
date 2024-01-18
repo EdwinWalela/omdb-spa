@@ -11,7 +11,6 @@ const MovieList = () => {
   const movies = state.movies;
   const isLoading = state.isLoading;
   const hasError = state.hasError;
-  const errorMessage = state.errorMessage;
   
   return (
     <>

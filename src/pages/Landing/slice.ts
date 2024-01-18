@@ -34,7 +34,8 @@ export const landingSlice = createSlice({
   initialState,
   reducers:{},
   extraReducers: (builder) => {
-    builder.addCase(getMovies.pending, (state,action)=>{
+    builder.addCase(getMovies.pending, (state)=>{
+
       state.isLoading = true;
       state.hasError = false;
       state.errorMessage = '';

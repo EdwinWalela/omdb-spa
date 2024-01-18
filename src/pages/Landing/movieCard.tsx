@@ -1,7 +1,6 @@
 
 import goldStarIcon from '../../assets/gold-star.svg';
 import noPosterImg from '../../assets/no-poster.png';
-import { Movie } from '../../types';
 
 const MovieCard = (props:any) => {
   let posterUrl = props.movie.Poster;

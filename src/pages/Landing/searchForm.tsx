@@ -12,6 +12,10 @@ const SearchForm = () => {
 
   function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if(title == ''){
+      alert('Movie title required')
+      return;
+    }
     dispatch(getMovies({title}))
   }
   

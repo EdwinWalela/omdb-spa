@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { LandingInitialState } from '../../types';
+import api from '../../api/movies';
 
 const initialState = {
   searchTitle: '',
@@ -14,11 +15,12 @@ export const getMovies = createAsyncThunk(
   async(payload: {title:string},{rejectWithValue}) => {
     let res;
     try {
-      // TODO: make api request
+      res = await api.getMovies(payload.title)
     } catch (error:any) {
       return rejectWithValue(error.message)
     }
-    return res
+    console.log(res.data)
+    return res.data
   }
 )
 
@@ -46,3 +48,4 @@ export const landingSlice = createSlice({
   }
 })
 
+export default landingSlice.reducer;

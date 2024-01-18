@@ -12,8 +12,6 @@ const getMovies = async (title:string) =>{
   } catch (error:any) {
     throw new Error(`Failed to get movie list: ${error.message}`);
   }
-  
-  console.log(response.data)
   return response.data
 }
 

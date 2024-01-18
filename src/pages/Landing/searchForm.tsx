@@ -4,13 +4,6 @@ import { getMovies } from "./slice";
 
 const SearchForm = () => {
   const dispatch = useAppDispatch();
-  const state = useAppSelector((state) => state.landingState);
-  
-  const movies = state.movies;
-  const isLoading = state.isLoading;
-  const hasError = state.hasError;
-  const errorMessage = state.errorMessage;
-
   const [title, setTitle] = useState('');
 
   function handleTitleChange(e: React.FormEvent<HTMLInputElement>) {

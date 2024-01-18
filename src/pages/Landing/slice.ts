@@ -13,13 +13,14 @@ const initialState = {
 export const getMovies = createAsyncThunk(
   'landing/get-movies',
   async(payload: {title:string},{rejectWithValue}) => {
-    let res;
+    let data;
     try {
-      res = await api.getMovies(payload.title)
+      data = await api.getMovies(payload.title)
     } catch (error:any) {
       return rejectWithValue(error.message)
     }
-    return res.data
+  
+    return data;
   }
 )
 

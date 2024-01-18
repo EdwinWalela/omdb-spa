@@ -1,5 +1,9 @@
 const LandingPage = () => {
-  return <h1> Hello World</h1>
+  return (
+    <div className="grow">
+      Landing Page
+    </div>
+  )
 }
 
 export default LandingPage;

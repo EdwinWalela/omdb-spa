@@ -13,7 +13,7 @@ const MovieCard = () => {
         />
        <div className="px-4 py-4">
         <div className="flex ">
-          <h1 className="font-medium mb-2 flex-1 text-sm">Star Wars: Episode IV - A New Hope</h1>
+          <h1 className="font-medium mb-2 flex-1 text-sm">Star Wars: Episode IV - A New Hope <span>(2013)</span></h1>
           <span className="bg-blue-500 text-white p-2 text-xs rounded">
             121 min
           </span>

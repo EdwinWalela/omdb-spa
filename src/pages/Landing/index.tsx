@@ -1,7 +1,9 @@
+import SearchForm from "./searchForm";
+
 const LandingPage = () => {
   return (
     <div className="grow">
-      Landing Page
+      <SearchForm />
     </div>
   )
 }

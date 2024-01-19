@@ -1,5 +1,6 @@
 import React from "react";
 import Lottie from 'lottie-react';
+
 import loadingIcon from '../../assets/loading.json';
 import notFoundIcon from '../../assets/notFound.json';
 import { useAppSelector } from "../../hooks";
@@ -11,7 +12,6 @@ const MovieList = () => {
   const movies = state.movies;
   const isLoading = state.isLoading;
   const hasError = state.hasError;
-  
   return (
     <>
       {isLoading && (

@@ -3,7 +3,7 @@ import goldStarIcon from '../../assets/gold-star.svg';
 import noPosterImg from '../../assets/no-poster.png';
 
 const MovieCard = (props:any) => {
-  let posterUrl = props.movie.Poster;
+  let posterUrl = props.movie.poster;
   let posterStyle = 'h-60';
   if(posterUrl == 'N/A'){
     posterUrl = noPosterImg;
@@ -20,21 +20,21 @@ const MovieCard = (props:any) => {
         />
        <div className="px-4 py-4">
         <div className="flex ">
-          <h1 className="font-medium mb-2 pt-1 flex-1 text-sm">{props.movie.Title} <span>({props.movie.Year})</span></h1>
+          <h1 className="font-medium mb-2 pt-1 flex-1 text-sm">{props.movie.title} <span>({props.movie.year})</span></h1>
           <span className="bg-blue-500 text-white p-2 text-xs rounded max-h-8">
-          {props.movie.Runtime}
+          {props.movie.length}
           </span>
         </div>
-        <p className="text-xs mt-3">{props.movie.Plot}</p>
-        <p className="text-xs my-3"> Cast: {props.movie.Actors}</p>
+        <p className="text-xs mt-3">{props.movie.plot}</p>
+        <p className="text-xs my-3"> Cast: {props.movie.cast}</p>
         <div className='flex'>
-          <p className='flex-1 text-xs'>{props.movie.Language}</p>
+          <p className='flex-1 text-xs'>{props.movie.language}</p>
           <p className='text-xs'>
             <img 
               className='w-6 inline pb-1 '
               src={goldStarIcon} 
             />
-            {props.movie.imdbRating}
+            {props.movie.rating}
           </p>
         </div>
        </div>

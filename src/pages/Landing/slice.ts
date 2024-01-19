@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { LandingInitialState } from '../../types';
+import { LandingInitialState, Movie } from '../../types';
 import api from '../../api/movies';
 
 const initialState = {
@@ -14,18 +14,14 @@ const initialState = {
 export const getMovies = createAsyncThunk(
   'landing/get-movies',
   async(payload: {title:string},{rejectWithValue}) => {
-    let data;
+    let movies:Movie[] = [];
     try {
-      data = await api.getMovies(payload.title)
-      console.log(data)
-      if(data.Response == 'False'){
-        return rejectWithValue(data.Error)
-      }
+      movies = await api.getMovies(payload.title)
     } catch (error:any) {
       return rejectWithValue(error.message)
     }
   
-    return data;
+    return movies;
   }
 )
 
@@ -35,7 +31,6 @@ export const landingSlice = createSlice({
   reducers:{},
   extraReducers: (builder) => {
     builder.addCase(getMovies.pending, (state)=>{
-
       state.isLoading = true;
       state.hasError = false;
       state.errorMessage = '';
@@ -46,9 +41,7 @@ export const landingSlice = createSlice({
       state.isLoading = false;
       state.hasError = false;
       state.errorMessage = '';
-      let movies = [];
-      movies.push(action.payload);
-      state.movies = movies;
+      state.movies = action.payload;
     })
     builder.addCase(getMovies.rejected, (state,action)=>{
       state.isLoading = false;

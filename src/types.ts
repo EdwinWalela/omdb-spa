@@ -14,5 +14,6 @@ export interface Movie {
   plot:string,
   cast:string,
   language:string,
-  rating:number
+  rating:number,
+  poster:string
 }

@@ -29,7 +29,7 @@ const MovieList = () => {
       )}
 
       {movies.length>0 && (
-        <div className="flex flex-wrap justify-center my-10">
+        <div className="lg:flex lg:flex-wrap lg:justify-center my-10">
           {movies.map((movie:Movie,index:React.Key)=>(
             <MovieCard movie={movie} key={index}/>
           ))}

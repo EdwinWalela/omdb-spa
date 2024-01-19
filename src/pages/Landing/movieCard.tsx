@@ -12,7 +12,7 @@ const MovieCard = (props:{movie:Movie}) => {
   } 
   return (
     <div 
-      className="shadow-lg w-1/3 mx-2 my-2 "
+      className="shadow-lg lg:w-1/3 mx-5 lg:mx-2 my-2 "
     >
       <div className="flex ">
         <img 

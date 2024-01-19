@@ -22,12 +22,12 @@ const SearchForm = () => {
 
   return (
     <form 
-      className="w-1/3 mx-auto my-10 border text-center shadow-md py-5"
+      className="md:w-1/3 mx-auto my-10 border text-center shadow-md py-5"
       onSubmit={handleFormSubmit}
     >
       <input 
         type="text" 
-        className="w-3/4 focus:outline-0  border-b-2 border-blue-500 px-2 py-1"
+        className="w-3/4 focus:outline-0 border-b-2 border-blue-500 px-2 py-1"
         placeholder="Enter a movie title e.g The Avengers"
         onChange={handleTitleChange}
         value={title}

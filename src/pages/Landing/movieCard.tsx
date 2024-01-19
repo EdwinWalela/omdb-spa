@@ -5,10 +5,10 @@ import { Movie } from '../../types';
 
 const MovieCard = (props:{movie:Movie}) => {
   let posterUrl = props.movie.poster;
-  let posterStyle = 'h-60';
+  let posterStyle = 'h-60 max-w-48';
   if(posterUrl == 'N/A'){
     posterUrl = noPosterImg;
-    posterStyle = 'h-43'
+    posterStyle = 'h-43 max-w-40'
   } 
   return (
     <div 

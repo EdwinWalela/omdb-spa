@@ -7,7 +7,7 @@ const NotFoundPage = () => {
       <h1>Page Not Found</h1>
       <Link 
       to="/" 
-      className="bg-blue-500 w-1/6 lg:mx-auto text-white p-3 rounded my-10 block">
+      className="bg-blue-500 lg:w-1/6 max-w-40 mx-auto text-white p-3 rounded my-10 block">
         Return Home
         </Link>
     </div>
